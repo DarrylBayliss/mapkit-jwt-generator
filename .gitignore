@@ -3,3 +3,6 @@ node_modules/
 
 # Don't commit p8 files. Not good security practice.
 *.p8
+
+# Don't commit package-lock.json
+package-lock.json
