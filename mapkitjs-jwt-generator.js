@@ -1,0 +1,30 @@
+// A node.js script to generate a jwt from a MapKitJS private key.
+
+const fs = require('fs');
+const jwt = require('jsonwebtoken');
+
+const privateKeyPath = process.argv.slice(2)
+
+const privateKey = fs
+  .readFileSync(privateKeyPath[0])
+  .toString()
+  // required to handle newlines at the end of file, otherwise jsonwebtoken
+  // doesn't like it!
+  .replace(/\n$/, '');
+
+
+// Optional values, these will appear in the payload section of the JWT.
+// By default it is empty, jsonwebtoken populates the payload with the values needed for mapkit.
+const payload = {
+
+}
+
+const options = {
+  algorithm: "ES256", // This is the encryption algorithm mapkitjs requires, don't change this.
+  keyid: "", // This is the jwt kid, find this in the private key you create in the Apple Developer portal.
+  issuer: "", // This is the team id in the Apple Developer portal.
+  expiresIn: "", // Set to whatever expiry you need. Refer to the jsonwebtoken documentation for acceptable values: https://www.npmjs.com/package/jsonwebtoken#token-expiration-exp-claim
+
+}
+
+console.log(jwt.sign(payload, privateKey, options));
