@@ -8,7 +8,7 @@ Written using node.js.
 
 1. Create a Maps ID and private key as described [here](https://developer.apple.com/documentation/mapkitjs/creating_a_maps_identifier_and_a_private_key). Make sure to download the private key and store it in a safe place.
 
-2. Edit the options object in `jwt-generator.js` so it contains the following information specific to your team and expiry date:
+2. Edit the options object in `mapkitjs-jwt-generator.js` so it contains the following information specific to your team and expiry date:
 
     - keyid
     - issuer
