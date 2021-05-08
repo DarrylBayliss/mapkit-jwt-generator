@@ -5,6 +5,15 @@ const jwt = require('jsonwebtoken');
 
 const privateKeyPath = process.argv.slice(2)
 
+if (privateKeyPath[0] == null) {
+  console.log("#################################################################")
+  console.log("STOPPING SCRIPT: PATH TO PRIVATE KEY NOT FOUND.")
+  console.log("Please add the path to the private key when calling this script.")
+  console.log("Example: node mapkitjs-jwt-generator.js ~/path-to-your-private-key")
+  console.log("#################################################################")
+  process.exit(1)
+}
+
 const privateKey = fs
   .readFileSync(privateKeyPath[0])
   .toString()
@@ -21,9 +30,9 @@ const payload = {
 
 const options = {
   algorithm: "ES256", // This is the encryption algorithm mapkitjs requires, don't change this.
-  keyid: "", // This is the jwt kid, find this in the private key you create in the Apple Developer portal.
-  issuer: "", // This is the team id in the Apple Developer portal.
-  expiresIn: "", // Set to whatever expiry you need. Refer to the jsonwebtoken documentation for acceptable values: https://www.npmjs.com/package/jsonwebtoken#token-expiration-exp-claim
+  keyid: "TMBN7T9Z2X", // This is the jwt kid, find this in the private key you create in the Apple Developer portal.
+  issuer: "3CYLFTT3BH", // This is the team id in the Apple Developer portal.
+  expiresIn: "365d", // Set to whatever expiry you need. Refer to the jsonwebtoken documentation for acceptable values: https://www.npmjs.com/package/jsonwebtoken#token-expiration-exp-claim
 
 }
 
