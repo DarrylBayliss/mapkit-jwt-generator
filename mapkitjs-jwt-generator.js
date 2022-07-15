@@ -30,8 +30,8 @@ const payload = {
 
 const options = {
   algorithm: "ES256", // This is the encryption algorithm mapkitjs requires, don't change this.
-  keyid: "TMBN7T9Z2X", // This is the jwt kid, find this in the private key you create in the Apple Developer portal.
-  issuer: "3CYLFTT3BH", // This is the team id in the Apple Developer portal.
+  keyid: "", // This is the jwt kid, find this in the private key you create in the Apple Developer portal.
+  issuer: "", // This is the team id in the Apple Developer portal.
   expiresIn: "365d", // Set to whatever expiry you need. Refer to the jsonwebtoken documentation for acceptable values: https://www.npmjs.com/package/jsonwebtoken#token-expiration-exp-claim
 
 }
